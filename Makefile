@@ -8,4 +8,6 @@ page2.pdf: page2.svg
 forreal.svg: qrpage.xsl testout.xml
 	xsltproc qrpage.xsl testout.xml > /dev/null
 	xsltproc qrpage.xsl testout.xml > forreal.svg
+	cairosvg forreal.svg -f pdf -o forreal.pdf
 	cp forreal.svg /vboxsf/qr_code
+	cp forreal.pdf /vboxsf/qr_code
