@@ -4,12 +4,12 @@
 	xmlns:svg="http://www.w3.org/2000/svg"
 	version="1.0">
 	<xsl:output standalone="yes"/>
-	<xsl:variable name="hori_skip_text">120</xsl:variable>
+	<xsl:variable name="hori_skip_text">142</xsl:variable>
 	<xsl:variable name="vert_skip_text_1">120</xsl:variable>
-	<xsl:variable name="vert_skip_text_2">45</xsl:variable>
-	<xsl:variable name="hori_skip_code">30</xsl:variable>
+	<xsl:variable name="vert_skip_text_2">40</xsl:variable>
+	<xsl:variable name="hori_skip_code"><xsl:value-of select="$hori_skip_text div 4"/></xsl:variable>
 	<xsl:variable name="vert_skip_code_1"><xsl:value-of select="$vert_skip_text_1 div 4"/></xsl:variable>
-	<xsl:variable name="vert_skip_code_2">11</xsl:variable>
+	<xsl:variable name="vert_skip_code_2"><xsl:value-of select="$vert_skip_text_2 div 4"/></xsl:variable>
 	<xsl:variable name="textscale">0.25</xsl:variable>
 	<xsl:variable name="cell_padding">5pt</xsl:variable>
 	<xsl:variable name="body-font-size">10pt</xsl:variable>
@@ -29,11 +29,11 @@
 			<xsl:attribute name="transform">translate(32,42);scale(2.7)</xsl:attribute>
 			<xsl:element name="svg:text">
 				<xsl:attribute name="x"><xsl:value-of select="
-59
+40
 + ((position() - 1) mod 9) * $vert_skip_text_1
 + floor(((position() - 1) mod 9) div 3) * $vert_skip_text_2
 "/></xsl:attribute>
-				<xsl:attribute name="y"><xsl:value-of select="121 + floor(((position() - 1) div 9 )) * $hori_skip_text"/></xsl:attribute>
+				<xsl:attribute name="y"><xsl:value-of select="136 + floor(((position() - 1) div 9 )) * $hori_skip_text"/></xsl:attribute>
 				<xsl:attribute name="text-anchor">middle</xsl:attribute>
 				<xsl:attribute name="transform">scale(<xsl:value-of select="$textscale"/>)</xsl:attribute>
 				<xsl:value-of select="@pagenumber"/>
@@ -44,12 +44,12 @@
 				<xsl:attribute name="transform">
 					<xsl:text>translate(</xsl:text>
 					<xsl:value-of select="
-4
+0
 + ((position() - 1) mod 9) * $vert_skip_code_1
 + floor(((position() - 1) mod 9) div 3) * $vert_skip_code_2
 "/>
 					<xsl:text>,</xsl:text>
-					<xsl:value-of select="4 + floor(((position() - 1) div 9)) * $hori_skip_code "/>
+					<xsl:value-of select="6 + floor(((position() - 1) div 9)) * $hori_skip_code "/>
 					<xsl:text>)</xsl:text>
 				</xsl:attribute>
 				<!-- <xsl:call-template name="sample_qr"/> -->
